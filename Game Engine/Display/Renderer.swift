@@ -1,8 +1,25 @@
-//
-//  Renderer.swift
-//  Game Engine
-//
-//  Created by SAMUEL BARROS on 18/04/24.
-//
+import MetalKit
 
-import Foundation
+class Renderer: NSObject {
+    
+    var gameObject: GameObject = GameObject()
+}
+
+extension Renderer: MTKViewDelegate{
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        //when the window is resized
+    }
+    
+    func draw(in view: MTKView) {
+        guard let drawable = view.currentDrawable, let currentRenderPassDescriptor = view.currentRenderPassDescriptor else { return }
+        let commandBuffer = Engine.CommandQueue.makeCommandBuffer()
+        let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: currentRenderPassDescriptor)
+        
+        gameObject.render(renderCommandEncoder: renderCommandEncoder!)
+        
+        renderCommandEncoder?.endEncoding()
+        commandBuffer?.present(drawable)
+        commandBuffer?.commit()
+    }
+}
