@@ -18,6 +18,8 @@ struct ModelConstants{
 
 struct SceneConstants{
     float4x4 viewMatrix;
+    float4x4 projectionMatrix;
+
 };
 
 vertex rasterizerData basic_vertex_shader(const VertexIn vIn [[ stage_in ]],
@@ -26,7 +28,7 @@ vertex rasterizerData basic_vertex_shader(const VertexIn vIn [[ stage_in ]],
     
     rasterizerData rd;
     
-    rd.position = sceneConstants.viewMatrix * modelConstants.modelMatrix * float4(vIn.position, 1);
+    rd.position = sceneConstants.projectionMatrix * sceneConstants.viewMatrix * modelConstants.modelMatrix * float4(vIn.position, 1);
     rd.color = vIn.color;
     
     return rd;

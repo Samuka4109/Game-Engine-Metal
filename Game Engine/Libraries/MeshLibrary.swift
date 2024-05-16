@@ -3,6 +3,7 @@ import MetalKit
 enum MeshTypes {
     case Triangle_Custom
     case Quad_Custom
+    case Cube_Custom
 }
 
 class MeshLibrary {
@@ -15,6 +16,7 @@ class MeshLibrary {
     private static func createDefaultMeshes(){
         meshes.updateValue(Triangle_CustomMesh(), forKey: .Triangle_Custom)
         meshes.updateValue(Quad_CustomMesh(), forKey: .Quad_Custom)
+        meshes.updateValue(Cube_CustomMesh(), forKey: .Cube_Custom)
     }
     
     public static func Mesh(_ meshType: MeshTypes) -> Mesh {
@@ -67,5 +69,59 @@ class Quad_CustomMesh: CustomMesh{
             Vertex(position: SIMD3(-1,-1,0), color: SIMD4(0,0,1,1)), //Bottom Left
             Vertex(position: SIMD3( 1,-1,0), color: SIMD4(1,0,1,1))  //Bottom Right
         ]
+    }
+}
+
+class Cube_CustomMesh: CustomMesh {
+    override func createVertices() {
+         vertices = [
+            //LEFT
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 1.0, 0.5, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0,  1.0), color: SIMD4( 0.0, 1.0, 0.5, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0,  1.0), color: SIMD4( 0.0, 0.5, 1.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 1.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0,  1.0), color: SIMD4( 0.0, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0, -1.0), color: SIMD4( 1.0, 0.0, 1.0, 1.0)),
+            
+            //RIGHT
+            Vertex(position: SIMD3(  1.0,  1.0,  1.0), color: SIMD4( 1.0, 0.0, 0.5, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0, -1.0), color: SIMD4( 0.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0, -1.0), color: SIMD4( 0.0, 0.5, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0, -1.0), color: SIMD4( 1.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0,  1.0), color: SIMD4( 0.0, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0,  1.0), color: SIMD4( 1.0, 0.5, 1.0, 1.0)),
+            
+            //TOP
+            Vertex(position: SIMD3(  1.0,  1.0,  1.0), color: SIMD4( 1.0, 0.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0, -1.0), color: SIMD4( 0.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0, -1.0), color: SIMD4( 0.0, 0.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0,  1.0), color: SIMD4( 1.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0, -1.0), color: SIMD4( 0.5, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0,  1.0), color: SIMD4( 1.0, 0.0, 1.0, 1.0)),
+            
+            //BOTTOM
+            Vertex(position: SIMD3(  1.0, -1.0,  1.0), color: SIMD4( 1.0, 0.5, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 0.5, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0, -1.0), color: SIMD4( 0.0, 0.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0,  1.0), color: SIMD4( 1.0, 1.0, 0.5, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0,  1.0), color: SIMD4( 0.0, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 1.0, 0.5, 1.0, 1.0)),
+            
+            //BACK
+            Vertex(position: SIMD3(  1.0,  1.0, -1.0), color: SIMD4( 1.0, 0.5, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 0.5, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0, -1.0), color: SIMD4( 0.0, 0.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0, -1.0), color: SIMD4( 1.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0, -1.0), color: SIMD4( 0.0, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0, -1.0), color: SIMD4( 1.0, 0.5, 1.0, 1.0)),
+            
+            //FRONT
+            Vertex(position: SIMD3( -1.0,  1.0,  1.0), color: SIMD4( 1.0, 0.5, 0.0, 1.0)),
+            Vertex(position: SIMD3( -1.0, -1.0,  1.0), color: SIMD4( 0.0, 1.0, 0.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0,  1.0), color: SIMD4( 0.5, 0.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0,  1.0,  1.0), color: SIMD4( 1.0, 1.0, 0.5, 1.0)),
+            Vertex(position: SIMD3( -1.0,  1.0,  1.0), color: SIMD4( 0.0, 1.0, 1.0, 1.0)),
+            Vertex(position: SIMD3(  1.0, -1.0,  1.0), color: SIMD4( 1.0, 0.0, 1.0, 1.0))
+         ]
     }
 }
