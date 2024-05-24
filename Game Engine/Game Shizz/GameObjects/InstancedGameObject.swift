@@ -51,7 +51,6 @@ class InstancedGameObject: Node {
             renderCommandEncoder.setDepthStencilState(DepthStencilStateLibrary.DepthStencilState(.Less))
             
             //Vertex Shader
-            renderCommandEncoder.setVertexBuffer(_mesh.vertexBuffer, offset: 0, index: 0)
             renderCommandEncoder.setVertexBuffer(_modelConstantsBuffer, offset: 0, index: 2)
             
             //Fragment Shader

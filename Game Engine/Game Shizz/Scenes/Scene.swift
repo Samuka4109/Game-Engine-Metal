@@ -14,7 +14,7 @@ class Scene: Node{
     
     func addCamera(_ camera: Camera, _ isCurrentCamera: Bool = true){
         cameraManager.registerCamera(camera: camera)
-        if (isCurrentCamera){
+        if(isCurrentCamera){
             cameraManager.setCamera(camera.cameraType)
         }
     }

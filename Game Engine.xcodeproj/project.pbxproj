@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0F462E2BFE96CC0074F04E /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F462D2BFE96CC0074F04E /* ColorUtil.swift */; };
 		3C1B54922BC594570000B4BF /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B54912BC594570000B4BF /* GameView.swift */; };
 		3C1B54942BC601930000B4BF /* MyShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B54932BC601930000B4BF /* MyShaders.metal */; };
 		3C4021B72BE29112009973E5 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4021B62BE29112009973E5 /* Keyboard.swift */; };
@@ -14,6 +15,8 @@
 		3C4679032BD695F9006A8E81 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4679022BD695F9006A8E81 /* Math.swift */; };
 		3C4B635E2BF67F07007554D8 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B635D2BF67F07007554D8 /* Cube.swift */; };
 		3C4B63602BF686B3007554D8 /* DepthStencilStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B635F2BF686B3007554D8 /* DepthStencilStateLibrary.swift */; };
+		3C542A682BFFFDCB00E0F35A /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C542A672BFFFDCB00E0F35A /* InstancedGameObject.swift */; };
+		3C542A6A2C000EA900E0F35A /* CubeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C542A692C000EA900E0F35A /* CubeCollection.swift */; };
 		3C76E84F2BF29900008AA33C /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76E84E2BF29900008AA33C /* Mouse.swift */; };
 		3C76E8522BF3CEE1008AA33C /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76E8512BF3CEE1008AA33C /* Camera.swift */; };
 		3C76E8542BF3D01C008AA33C /* DebugCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76E8532BF3D01C008AA33C /* DebugCamera.swift */; };
@@ -41,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C0F462D2BFE96CC0074F04E /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		3C1B54912BC594570000B4BF /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		3C1B54932BC601930000B4BF /* MyShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MyShaders.metal; sourceTree = "<group>"; };
 		3C4021B62BE29112009973E5 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		3C4679022BD695F9006A8E81 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		3C4B635D2BF67F07007554D8 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		3C4B635F2BF686B3007554D8 /* DepthStencilStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthStencilStateLibrary.swift; sourceTree = "<group>"; };
+		3C542A672BFFFDCB00E0F35A /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
+		3C542A692C000EA900E0F35A /* CubeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCollection.swift; sourceTree = "<group>"; };
 		3C76E84E2BF29900008AA33C /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
 		3C76E8512BF3CEE1008AA33C /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		3C76E8532BF3D01C008AA33C /* DebugCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCamera.swift; sourceTree = "<group>"; };
@@ -87,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C0F462C2BFE96B10074F04E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F462D2BFE96CC0074F04E /* ColorUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		3C1B54902BC58BB70000B4BF /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,10 +160,12 @@
 		3C8B6EEF2BD167BD00E66BD5 /* Game Shizz */ = {
 			isa = PBXGroup;
 			children = (
+				3C8B6EFA2BD1D3D200E66BD5 /* protocols */,
+				3CA5FC1C2BCFFED2008F1BE4 /* Display */,
+				3C76E8502BF3CEA2008AA33C /* Cameras */,
+				3C8B6EFD2BD1D72900E66BD5 /* GameObjects */,
 				3C8B6EF82BD1D04200E66BD5 /* Nodes.swift */,
 				3C7ABA792BD7D07300DC6FAD /* Scenes */,
-				3C8B6EFD2BD1D72900E66BD5 /* GameObjects */,
-				3C8B6EFA2BD1D3D200E66BD5 /* protocols */,
 			);
 			path = "Game Shizz";
 			sourceTree = "<group>";
@@ -166,9 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				3C8B6EF02BD168F300E66BD5 /* GameObject.swift */,
+				3C542A672BFFFDCB00E0F35A /* InstancedGameObject.swift */,
+				3C542A692C000EA900E0F35A /* CubeCollection.swift */,
 				3C8B6EF62BD1CDB400E66BD5 /* Pointer.swift */,
 				3C4B635D2BF67F07007554D8 /* Cube.swift */,
-				3C76E8502BF3CEA2008AA33C /* Cameras */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -234,13 +251,13 @@
 		3CE303902BB21618005F876B /* Game Engine */ = {
 			isa = PBXGroup;
 			children = (
+				3C0F462C2BFE96B10074F04E /* Utils */,
 				3C4679012BD695D7006A8E81 /* Maths */,
 				3CA5FC1A2BCFFE7D008F1BE4 /* Core */,
 				3CA5FC1D2BCFFF05008F1BE4 /* Libraries */,
 				3C7ABA7E2BD7E23B00DC6FAD /* Managers */,
 				3CA5FC1B2BCFFE92008F1BE4 /* Shaders */,
 				3C8B6EEF2BD167BD00E66BD5 /* Game Shizz */,
-				3CA5FC1C2BCFFED2008F1BE4 /* Display */,
 				3C1B54902BC58BB70000B4BF /* Other Files */,
 			);
 			path = "Game Engine";
@@ -274,7 +291,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					3CE3038D2BB21618005F876B = {
 						CreatedOnToolsVersion = 15.3;
@@ -319,10 +336,12 @@
 				3C8B6EFC2BD1D40200E66BD5 /* Renderable.swift in Sources */,
 				3CA5FC292BD0655D008F1BE4 /* RenderPipelineDescriptorLibrary.swift in Sources */,
 				3CA5FC272BD05E2E008F1BE4 /* VertexDescriptorLibrary.swift in Sources */,
+				3C0F462E2BFE96CC0074F04E /* ColorUtil.swift in Sources */,
 				3C7ABA7B2BD7D09B00DC6FAD /* Scene.swift in Sources */,
 				3C1B54942BC601930000B4BF /* MyShaders.metal in Sources */,
 				3CA5FC232BD00958008F1BE4 /* Preferences.swift in Sources */,
 				3C8B6EF52BD1779D00E66BD5 /* MeshLibrary.swift in Sources */,
+				3C542A682BFFFDCB00E0F35A /* InstancedGameObject.swift in Sources */,
 				3C76E8562BF3D656008AA33C /* CameraManager.swift in Sources */,
 				3C76E84F2BF29900008AA33C /* Mouse.swift in Sources */,
 				3C76E8542BF3D01C008AA33C /* DebugCamera.swift in Sources */,
@@ -340,6 +359,7 @@
 				3C8B6EF12BD168F300E66BD5 /* GameObject.swift in Sources */,
 				3CA5FC252BD01331008F1BE4 /* ShadersLibrary.swift in Sources */,
 				3C4021B92BE29306009973E5 /* Keycodes.swift in Sources */,
+				3C542A6A2C000EA900E0F35A /* CubeCollection.swift in Sources */,
 				3CA5FC212BD0040F008F1BE4 /* Engine.swift in Sources */,
 				3C76E8522BF3CEE1008AA33C /* Camera.swift in Sources */,
 				3C8B6EF72BD1CDB400E66BD5 /* Pointer.swift in Sources */,
@@ -396,6 +416,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -459,6 +480,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -490,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V4N53J95D2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -518,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V4N53J95D2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;

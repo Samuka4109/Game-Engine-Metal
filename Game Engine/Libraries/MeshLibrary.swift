@@ -27,11 +27,14 @@ class MeshLibrary {
 protocol Mesh {
     var vertexBuffer: MTLBuffer! { get }
     var vertexCount: Int! { get }
+    func setInstancedCount(_ count: Int)
+    func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 
 class CustomMesh: Mesh {
     var vertices: [Vertex]!
     var vertexBuffer: MTLBuffer!
+    var instanceCount: Int = 1
     var vertexCount: Int! {
         return vertices.count
     }
@@ -45,6 +48,19 @@ class CustomMesh: Mesh {
 
     func createBuffers(){
         vertexBuffer = Engine.Device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
+    }
+    
+    func setInstancedCount(_ count: Int) {
+        self.instanceCount = count
+    }
+    
+    func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder) {
+        renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+ 
+        renderCommandEncoder.drawPrimitives(type: .triangle,
+                                            vertexStart: 0,
+                                            vertexCount: vertexCount,
+                                            instanceCount: instanceCount)
     }
 }
 

@@ -1,8 +1,9 @@
-//
-//  ColorUtil.swift
-//  Game Engine
-//
-//  Created by SAMUEL BARROS on 22/05/24.
-//
+import simd
 
-import Foundation
+class ColorUtil {
+    
+    public static var randomColor: SIMD4<Float> {
+        return SIMD4<Float>(Float.randomZeroToOne, Float.randomZeroToOne, Float.randomZeroToOne, 1.0)
+    }
+    
+}
