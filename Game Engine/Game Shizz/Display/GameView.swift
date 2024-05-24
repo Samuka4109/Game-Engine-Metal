@@ -20,11 +20,11 @@ class GameView: MTKView {
         
         self.delegate = renderer
     }
+    
 }
  
  // --- Keybord Input ---
 extension GameView{
-    
     override var acceptsFirstResponder: Bool { return true }
     
     override func keyDown(with event: NSEvent) {
@@ -38,42 +38,33 @@ extension GameView{
 
 // --- Mouse Input ---
 extension GameView {
-    
-    
     override func mouseDown(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: true)
     }
     
     override func mouseUp(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: false)
-
     }
     
     override func rightMouseDown(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: true)
-
     }
     
     override func rightMouseUp(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: false)
-
     }
     
     override func otherMouseDown(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: true)
-
     }
     
     override func otherMouseUp(with event: NSEvent) {
         Mouse.SetMouseButtonPressed(button: event.buttonNumber, isOn: false)
-
     }
-    
 }
 
 // --- Mouse Movement ---
 extension GameView {
-    
     override func mouseMoved(with event: NSEvent) {
         setMousePositionChanged(with: event)
     }
@@ -99,7 +90,8 @@ extension GameView {
                                            Float(event.locationInWindow.y))
         let deltaChange = SIMD2<Float>(Float(event.deltaX),
                                        Float(event.deltaY))
-        Mouse.SetMousePositionChange(overallPosition: overallLocation, deltaPosition: deltaChange)
+        Mouse.SetMousePositionChange(overallPosition: overallLocation,
+                                     deltaPosition: deltaChange)
     }
     
     override func updateTrackingAreas(){
@@ -110,7 +102,6 @@ extension GameView {
                                   owner: self,
                                   userInfo: nil)
         self.addTrackingArea(area)
-        
     }
     
 }
